@@ -198,7 +198,7 @@ def build_connection_parameter(params):
 
 def connect(connection, module):
     try:
-        db_connection = MySQLdb.connect(**connection)
+        db_connection = MySQLdb.connect(read_default_file="~/.my.cnf")
         return db_connection
     except Exception, e:
         module.fail_json(msg="Error connecting to mysql database: %s" % str(e))
